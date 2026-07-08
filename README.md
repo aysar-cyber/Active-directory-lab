@@ -1,84 +1,206 @@
-# Active-directory-lab
-This project documents the design, configuration, deployment, and administration of a Window Active Directory enviorment hosted on KVM/QEMU virtualization platform. The objective for this project is to develop stong technical experience with enterprise Windows infrastructure while strengthening systems administration, networking, virtualization, and troubleshooting skills.
+# Active Directory Home Lab
 
-Rather than following a tutorial start to finish, this lab was built by solving real deployment and configuration encountered troughout the entire setup process.
+## Overview
 
-##Objectives
-- Deploy Windows server as an Active DIrectory Domain Controller
-- Configure Dns and networking for an enterprise enviorment
-- Create and manage Active DIrectory Domain
-- Join Windows client machines to the Domain
-- Develop troubleshooting skills for common user issues
-- Document every stage of deployment
+This project documents the creation of a Windows Server Active Directory home lab built in a virtualized environment using KVM/QEMU. The goal of this lab was to gain hands-on experience with Windows Server administration, Active Directory Domain Services (AD DS), user and group management, file sharing, and troubleshooting common enterprise administration tasks.
 
-##Technologies Used
-Operating systems
-- Windows server 2025
-- Windows 11
-- Arch Linux (Host)
-- Ubuntu server
+This lab was built to simulate a small business environment and strengthen practical IT administration skills beyond classroom learning.
 
-Virtualization
-- KVM
-- QEMU
-- libvirt
+---
+
+## Objectives
+
+- Deploy a Windows Server virtual machine
+- Install and configure Active Directory Domain Services (AD DS)
+- Promote the server to a Domain Controller
+- Create an Active Directory domain
+- Organize resources using Organizational Units (OUs)
+- Create and manage domain users and security groups
+- Configure shared folders
+- Practice Windows administration and troubleshooting
+
+---
+
+## Lab Environment
+
+### Host System
+
+- Arch Linux
+- KVM/QEMU
 - virt-manager
 
- Windows Services
-- Active Directory Domain Services (AD DS)
+### Virtual Machines
+
+- Windows Server 2022
+- Windows 11 Client
+
+---
+
+## Technologies Used
+
+- Active Directory Domain Services
+- Windows Server 2022
+- Windows 11
 - DNS
-- Group Policy
-- Active DIrectory Users and COmputers
+- NTFS Permissions
+- SMB File Sharing
+- KVM/QEMU Virtualization
+- Virt-Manager
 
-Networking
-- NAT networking
-- DHCP
-- Static IPV4 Config
-- DNS Resolution
-- Virtual Bridges (virbr0)
+---
 
-##LAB ARCHITECTURE
-Arch Linux Host
-│
-├── KVM/QEMU
-│
-├── Windows Server 2025
-│      ├── Active Directory
-│      ├── DNS
-│      └── Domain Controller (DC01)
-│
-└── Windows 11 Client
-       └── Joined to homelab.local
+# Active Directory Deployment
 
-Skills Demonstrated
+The Windows Server virtual machine was promoted to a Domain Controller using Active Directory Domain Services.
+
+The server was configured to host the lab domain and provide centralized authentication and management for domain resources.
+
+Completed tasks included:
+
+- Installing AD DS
+- Promoting the server to a Domain Controller
+- Creating the Active Directory domain
+- Verifying domain functionality
+- Managing the environment through Server Manager
+
+---
+
+# Organizational Unit Structure
+
+To simulate an enterprise environment, Organizational Units (OUs) were created for administrative organization.
+
+Example structure:
+
+```
+HOMELAB
+├── Users
+├── Groups
+├── Computers
+├── Servers
+├── HR
+└── IT
+```
+
+---
+
+# User Management
+
+Multiple domain user accounts were created to simulate employees.
+
+Tasks completed:
+
+- Created domain user accounts
+- Configured passwords
+- Assigned users to appropriate Organizational Units
+- Verified successful account creation
+
+---
+
+# Group Management
+
+Security groups were created to simplify permission management.
+
+Examples include:
+
+- HR_Users
+- IT_Users
+
+Users were assigned to department-specific security groups to support role-based access control.
+
+---
+
+# File Server
+
+A departmental file share structure was created.
+
+```
+C:\Shares
+├── HR
+├── IT
+└── Finance
+```
+
+The lab included configuring:
+
+- Shared folders
+- NTFS permissions
+- Share permissions
+- Security group access
+
+During implementation, permission conflicts were encountered and resolved, providing valuable experience troubleshooting Windows file permissions.
+
+---
+
+# Troubleshooting Experience
+
+One of the most valuable parts of this project was resolving real administrative issues.
+
+Examples included:
+
+- Virtual machine networking configuration
+- Driver installation during Windows Server deployment
+- Active Directory installation prerequisites
+- DNS configuration
+- Windows file permission troubleshooting
+- NTFS and Share permission configuration
+- User access validation
+
+Working through these problems provided hands-on experience similar to real-world IT support scenarios.
+
+---
+
+# Skills Demonstrated
+
 - Windows Server Administration
-- Active Directory Deployment
-- Linux system Administration
+- Active Directory Administration
+- User and Group Management
+- Organizational Unit Design
 - Virtualization
-- Network configuration
-- Network Configuration
+- File Server Administration
+- Windows Networking
 - DNS
-- DHCP
-- Windows Troubleshooting
-- Powershell
-- Enterprise Authentication
-- Technical Documentation
+- Access Control
+- Troubleshooting
+- Documentation
 
-Challenges Encountered
-During this project I experienced and resolved several infrastructure isues including:
-- DHCP failures resulting in APIPA (192.254.X.X) addressing
-- libvirt networking configuration issues
-- Windows server driver installation
-- Active directory deployment troubleshooting
-- Server Manager Configuration problems
-Detailed write-ups for each issue are available in TROUBLESHOOTING.md.
+---
 
-#Future Improvements
-- Create organizational Units
-- Create domain users and groups
-- Join Windows 11 workstation to the domain
-- Configure Group Policy Objects
-- Implement file shares and NTFS permissions
-- Deploy Splunk or Wazuh
-- Generate security events for SOC detection practice
-- Integrate Kali Linux for attack simulation
+# Lessons Learned
+
+This project reinforced the importance of hands-on learning. Building the environment from scratch required researching problems, troubleshooting configuration issues, and understanding how Windows Server components work together.
+
+The experience improved my understanding of enterprise identity management, Windows administration, and system troubleshooting far more than simply watching tutorials.
+
+---
+
+# Future Improvements
+
+- Configure Group Policy Objects (GPOs)
+- Deploy DHCP services
+- Add roaming profiles
+- Configure folder redirection
+- Implement Remote Desktop Services
+- Deploy Windows clients automatically
+- Integrate PowerShell automation
+- Configure Windows Server Backup
+- Expand the lab with additional domain controllers
+
+---
+
+# Repository Contents
+
+```
+README.md
+Screenshots/
+Documentation/
+```
+
+---
+
+## Author
+
+**Aysar Aljiryawee**
+
+Cybersecurity Student
+
+Focused on Windows administration, networking, Linux, virtualization, and cybersecurity.
